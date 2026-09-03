@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Adithyan408/Multi-DB-Ecom-Application#readme",
   "description": "",
   "dependencies": {
+    "@prisma/adapter-mariadb": "^7.10.0",
     "@prisma/client": "^7.10.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
