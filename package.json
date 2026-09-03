@@ -21,8 +21,10 @@
   "homepage": "https://github.com/Adithyan408/Multi-DB-Ecom-Application#readme",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^7.10.0",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "prisma": "^7.10.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
