@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegisterUser = void 0;
+const node_crypto_1 = __importDefault(require("node:crypto"));
 class RegisterUser {
     userRepository;
     passwordService;
@@ -15,7 +19,7 @@ class RegisterUser {
         }
         const passwordHash = await this.passwordService.hash(password);
         const user = {
-            id: crypto.randomUUID(),
+            id: node_crypto_1.default.randomUUID(),
             name,
             email,
             passwordHash,

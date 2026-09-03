@@ -1,5 +1,6 @@
 import { IUserRepository } from "../../../domain/repositories/IUserRepository";
 import { IPasswordService } from "../../../domain/services/IPasswordService";
+import crypto from "node:crypto";
 
 export class RegisterUser { 
     constructor(

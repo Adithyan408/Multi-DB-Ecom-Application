@@ -9,7 +9,7 @@ export class LoginUser{
         private readonly tokenService: ITokenService
     ){}
 
-    async excute(email: string, password: string){
+    async exceute(email: string, password: string){
         const user = await this.userRepository.findByEmail(email)
         if(!user){
             throw new Error("Invalid credentials")

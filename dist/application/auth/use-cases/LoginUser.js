@@ -10,7 +10,7 @@ class LoginUser {
         this.passwordService = passwordService;
         this.tokenService = tokenService;
     }
-    async excute(email, password) {
+    async exceute(email, password) {
         const user = await this.userRepository.findByEmail(email);
         if (!user) {
             throw new Error("Invalid credentials");

@@ -6,7 +6,7 @@ export declare class LoginUser {
     private readonly passwordService;
     private readonly tokenService;
     constructor(userRepository: IUserRepository, passwordService: IPasswordService, tokenService: ITokenService);
-    excute(email: string, password: string): Promise<{
+    exceute(email: string, password: string): Promise<{
         user: {
             id: string;
             name: string;
