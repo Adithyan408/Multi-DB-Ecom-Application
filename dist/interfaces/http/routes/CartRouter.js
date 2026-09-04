@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const CartController_1 = require("../controllers/CartController");
+const AddProductToCart_1 = require("../../../application/cart/use-cases/AddProductToCart");
+const PrismaCartRepository_1 = require("../../../infrastructure/database/mysql/repositories/PrismaCartRepository");
+const prisma_1 = require("../../../infrastructure/database/mysql/client/prisma");
+const GetCart_1 = require("../../../application/cart/use-cases/GetCart");
+const RemoveCartItem_1 = require("../../../application/cart/use-cases/RemoveCartItem");
+const ClearCart_1 = require("../../../application/cart/use-cases/ClearCart");
+const cartRepository = new PrismaCartRepository_1.PrismaCartRepository(prisma_1.prisma);
+const addProductToCart = new AddProductToCart_1.AddProductToCart(cartRepository);
+const getCart = new GetCart_1.GetCart(cartRepository);
+const removeCartItem = new RemoveCartItem_1.RemoveCartItem(cartRepository);
+const clearCart = new ClearCart_1.ClearCart(cartRepository);
+const cartController = new CartController_1.CartController(addProductToCart, getCart, removeCartItem, clearCart);
+const cartRouter = (0, express_1.Router)();
+cartRouter.post("/items", (req, res, next) => cartController.addItem(req, res, next));
+cartRouter.post("/items", (req, res, next) => cartController.addItem(req, res, next));
+cartRouter.get("/", (req, res, next) => cartController.get(req, res, next));
+cartRouter.delete("/items/:productId", (req, res, next) => cartController.removeItem(req, res, next));
+cartRouter.delete("/", (req, res, next) => cartController.clear(req, res, next));
+exports.default = cartRouter;
+//# sourceMappingURL=CartRouter.js.map

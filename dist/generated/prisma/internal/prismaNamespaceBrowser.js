@@ -48,7 +48,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductOrderByRelevanceFieldEnum = exports.RefreshTokenOrderByRelevanceFieldEnum = exports.UserOrderByRelevanceFieldEnum = exports.SortOrder = exports.ProductScalarFieldEnum = exports.RefreshTokenScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
+exports.CartItemOrderByRelevanceFieldEnum = exports.CartOrderByRelevanceFieldEnum = exports.ProductOrderByRelevanceFieldEnum = exports.RefreshTokenOrderByRelevanceFieldEnum = exports.UserOrderByRelevanceFieldEnum = exports.SortOrder = exports.CartItemScalarFieldEnum = exports.CartScalarFieldEnum = exports.ProductScalarFieldEnum = exports.RefreshTokenScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/index-browser"));
 exports.Decimal = runtime.Decimal;
 exports.NullTypes = {
@@ -77,7 +77,9 @@ exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
     User: 'User',
     RefreshToken: 'RefreshToken',
-    Product: 'Product'
+    Product: 'Product',
+    Cart: 'Cart',
+    CartItem: 'CartItem'
 };
 /*
  * Enums
@@ -112,6 +114,18 @@ exports.ProductScalarFieldEnum = {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };
+exports.CartScalarFieldEnum = {
+    id: 'id',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+exports.CartItemScalarFieldEnum = {
+    id: 'id',
+    cartId: 'cartId',
+    productId: 'productId',
+    quantity: 'quantity'
+};
 exports.SortOrder = {
     asc: 'asc',
     desc: 'desc'
@@ -131,5 +145,14 @@ exports.ProductOrderByRelevanceFieldEnum = {
     id: 'id',
     name: 'name',
     description: 'description'
+};
+exports.CartOrderByRelevanceFieldEnum = {
+    id: 'id',
+    userId: 'userId'
+};
+exports.CartItemOrderByRelevanceFieldEnum = {
+    id: 'id',
+    cartId: 'cartId',
+    productId: 'productId'
 };
 //# sourceMappingURL=prismaNamespaceBrowser.js.map

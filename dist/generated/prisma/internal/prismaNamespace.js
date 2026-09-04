@@ -48,7 +48,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defineExtension = exports.ProductOrderByRelevanceFieldEnum = exports.RefreshTokenOrderByRelevanceFieldEnum = exports.UserOrderByRelevanceFieldEnum = exports.SortOrder = exports.ProductScalarFieldEnum = exports.RefreshTokenScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
+exports.defineExtension = exports.CartItemOrderByRelevanceFieldEnum = exports.CartOrderByRelevanceFieldEnum = exports.ProductOrderByRelevanceFieldEnum = exports.RefreshTokenOrderByRelevanceFieldEnum = exports.UserOrderByRelevanceFieldEnum = exports.SortOrder = exports.CartItemScalarFieldEnum = exports.CartScalarFieldEnum = exports.ProductScalarFieldEnum = exports.RefreshTokenScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/client"));
 /**
  * Prisma Errors
@@ -105,7 +105,9 @@ exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
     User: 'User',
     RefreshToken: 'RefreshToken',
-    Product: 'Product'
+    Product: 'Product',
+    Cart: 'Cart',
+    CartItem: 'CartItem'
 };
 /**
  * Enums
@@ -140,6 +142,18 @@ exports.ProductScalarFieldEnum = {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };
+exports.CartScalarFieldEnum = {
+    id: 'id',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+exports.CartItemScalarFieldEnum = {
+    id: 'id',
+    cartId: 'cartId',
+    productId: 'productId',
+    quantity: 'quantity'
+};
 exports.SortOrder = {
     asc: 'asc',
     desc: 'desc'
@@ -159,6 +173,15 @@ exports.ProductOrderByRelevanceFieldEnum = {
     id: 'id',
     name: 'name',
     description: 'description'
+};
+exports.CartOrderByRelevanceFieldEnum = {
+    id: 'id',
+    userId: 'userId'
+};
+exports.CartItemOrderByRelevanceFieldEnum = {
+    id: 'id',
+    cartId: 'cartId',
+    productId: 'productId'
 };
 exports.defineExtension = runtime.Extensions.defineExtension;
 //# sourceMappingURL=prismaNamespace.js.map

@@ -150,5 +150,27 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get product(): Prisma.ProductDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    /**
+     * `prisma.cart`: Exposes CRUD operations for the **Cart** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Carts
+      * const carts = await prisma.cart.findMany()
+      * ```
+      */
+    get cart(): Prisma.CartDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.cartItem`: Exposes CRUD operations for the **CartItem** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more CartItems
+      * const cartItems = await prisma.cartItem.findMany()
+      * ```
+      */
+    get cartItem(): Prisma.CartItemDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
 }
 export declare function getPrismaClientClass(): PrismaClientConstructor;

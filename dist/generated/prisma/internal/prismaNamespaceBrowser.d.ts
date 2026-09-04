@@ -29,6 +29,8 @@ export declare const ModelName: {
     readonly User: "User";
     readonly RefreshToken: "RefreshToken";
     readonly Product: "Product";
+    readonly Cart: "Cart";
+    readonly CartItem: "CartItem";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -65,6 +67,20 @@ export declare const ProductScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum];
+export declare const CartScalarFieldEnum: {
+    readonly id: "id";
+    readonly userId: "userId";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type CartScalarFieldEnum = (typeof CartScalarFieldEnum)[keyof typeof CartScalarFieldEnum];
+export declare const CartItemScalarFieldEnum: {
+    readonly id: "id";
+    readonly cartId: "cartId";
+    readonly productId: "productId";
+    readonly quantity: "quantity";
+};
+export type CartItemScalarFieldEnum = (typeof CartItemScalarFieldEnum)[keyof typeof CartItemScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
@@ -89,3 +105,14 @@ export declare const ProductOrderByRelevanceFieldEnum: {
     readonly description: "description";
 };
 export type ProductOrderByRelevanceFieldEnum = (typeof ProductOrderByRelevanceFieldEnum)[keyof typeof ProductOrderByRelevanceFieldEnum];
+export declare const CartOrderByRelevanceFieldEnum: {
+    readonly id: "id";
+    readonly userId: "userId";
+};
+export type CartOrderByRelevanceFieldEnum = (typeof CartOrderByRelevanceFieldEnum)[keyof typeof CartOrderByRelevanceFieldEnum];
+export declare const CartItemOrderByRelevanceFieldEnum: {
+    readonly id: "id";
+    readonly cartId: "cartId";
+    readonly productId: "productId";
+};
+export type CartItemOrderByRelevanceFieldEnum = (typeof CartItemOrderByRelevanceFieldEnum)[keyof typeof CartItemOrderByRelevanceFieldEnum];

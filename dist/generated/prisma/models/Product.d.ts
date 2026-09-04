@@ -188,6 +188,7 @@ export type ProductWhereInput = {
     stock?: Prisma.IntFilter<"Product"> | number;
     createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string;
+    cartItems?: Prisma.CartItemListRelationFilter;
 };
 export type ProductOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -197,6 +198,7 @@ export type ProductOrderByWithRelationInput = {
     stock?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
+    cartItems?: Prisma.CartItemOrderByRelationAggregateInput;
     _relevance?: Prisma.ProductOrderByRelevanceInput;
 };
 export type ProductWhereUniqueInput = Prisma.AtLeast<{
@@ -210,6 +212,7 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
     stock?: Prisma.IntFilter<"Product"> | number;
     createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string;
+    cartItems?: Prisma.CartItemListRelationFilter;
 }, "id">;
 export type ProductOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -245,6 +248,7 @@ export type ProductCreateInput = {
     stock: number;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    cartItems?: Prisma.CartItemCreateNestedManyWithoutProductInput;
 };
 export type ProductUncheckedCreateInput = {
     id?: string;
@@ -254,6 +258,7 @@ export type ProductUncheckedCreateInput = {
     stock: number;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutProductInput;
 };
 export type ProductUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -263,6 +268,7 @@ export type ProductUpdateInput = {
     stock?: Prisma.IntFieldUpdateOperationsInput | number;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    cartItems?: Prisma.CartItemUpdateManyWithoutProductNestedInput;
 };
 export type ProductUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -272,6 +278,7 @@ export type ProductUncheckedUpdateInput = {
     stock?: Prisma.IntFieldUpdateOperationsInput | number;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutProductNestedInput;
 };
 export type ProductCreateManyInput = {
     id?: string;
@@ -340,6 +347,10 @@ export type ProductSumOrderByAggregateInput = {
     price?: Prisma.SortOrder;
     stock?: Prisma.SortOrder;
 };
+export type ProductScalarRelationFilter = {
+    is?: Prisma.ProductWhereInput;
+    isNot?: Prisma.ProductWhereInput;
+};
 export type DecimalFieldUpdateOperationsInput = {
     set?: runtime.Decimal | runtime.DecimalJsLike | number | string;
     increment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
@@ -354,6 +365,91 @@ export type IntFieldUpdateOperationsInput = {
     multiply?: number;
     divide?: number;
 };
+export type ProductCreateNestedOneWithoutCartItemsInput = {
+    create?: Prisma.XOR<Prisma.ProductCreateWithoutCartItemsInput, Prisma.ProductUncheckedCreateWithoutCartItemsInput>;
+    connectOrCreate?: Prisma.ProductCreateOrConnectWithoutCartItemsInput;
+    connect?: Prisma.ProductWhereUniqueInput;
+};
+export type ProductUpdateOneRequiredWithoutCartItemsNestedInput = {
+    create?: Prisma.XOR<Prisma.ProductCreateWithoutCartItemsInput, Prisma.ProductUncheckedCreateWithoutCartItemsInput>;
+    connectOrCreate?: Prisma.ProductCreateOrConnectWithoutCartItemsInput;
+    upsert?: Prisma.ProductUpsertWithoutCartItemsInput;
+    connect?: Prisma.ProductWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ProductUpdateToOneWithWhereWithoutCartItemsInput, Prisma.ProductUpdateWithoutCartItemsInput>, Prisma.ProductUncheckedUpdateWithoutCartItemsInput>;
+};
+export type ProductCreateWithoutCartItemsInput = {
+    id?: string;
+    name: string;
+    description: string;
+    price: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    stock: number;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type ProductUncheckedCreateWithoutCartItemsInput = {
+    id?: string;
+    name: string;
+    description: string;
+    price: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    stock: number;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type ProductCreateOrConnectWithoutCartItemsInput = {
+    where: Prisma.ProductWhereUniqueInput;
+    create: Prisma.XOR<Prisma.ProductCreateWithoutCartItemsInput, Prisma.ProductUncheckedCreateWithoutCartItemsInput>;
+};
+export type ProductUpsertWithoutCartItemsInput = {
+    update: Prisma.XOR<Prisma.ProductUpdateWithoutCartItemsInput, Prisma.ProductUncheckedUpdateWithoutCartItemsInput>;
+    create: Prisma.XOR<Prisma.ProductCreateWithoutCartItemsInput, Prisma.ProductUncheckedCreateWithoutCartItemsInput>;
+    where?: Prisma.ProductWhereInput;
+};
+export type ProductUpdateToOneWithWhereWithoutCartItemsInput = {
+    where?: Prisma.ProductWhereInput;
+    data: Prisma.XOR<Prisma.ProductUpdateWithoutCartItemsInput, Prisma.ProductUncheckedUpdateWithoutCartItemsInput>;
+};
+export type ProductUpdateWithoutCartItemsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    stock?: Prisma.IntFieldUpdateOperationsInput | number;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type ProductUncheckedUpdateWithoutCartItemsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    stock?: Prisma.IntFieldUpdateOperationsInput | number;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+/**
+ * Count Type ProductCountOutputType
+ */
+export type ProductCountOutputType = {
+    cartItems: number;
+};
+export type ProductCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    cartItems?: boolean | ProductCountOutputTypeCountCartItemsArgs;
+};
+/**
+ * ProductCountOutputType without action
+ */
+export type ProductCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductCountOutputType
+     */
+    select?: Prisma.ProductCountOutputTypeSelect<ExtArgs> | null;
+};
+/**
+ * ProductCountOutputType without action
+ */
+export type ProductCountOutputTypeCountCartItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.CartItemWhereInput;
+};
 export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     name?: boolean;
@@ -362,6 +458,8 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     stock?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
+    cartItems?: boolean | Prisma.Product$cartItemsArgs<ExtArgs>;
+    _count?: boolean | Prisma.ProductCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["product"]>;
 export type ProductSelectScalar = {
     id?: boolean;
@@ -373,9 +471,15 @@ export type ProductSelectScalar = {
     updatedAt?: boolean;
 };
 export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "price" | "stock" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>;
+export type ProductInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    cartItems?: boolean | Prisma.Product$cartItemsArgs<ExtArgs>;
+    _count?: boolean | Prisma.ProductCountOutputTypeDefaultArgs<ExtArgs>;
+};
 export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     name: "Product";
-    objects: {};
+    objects: {
+        cartItems: Prisma.$CartItemPayload<ExtArgs>[];
+    };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
         name: string;
@@ -661,6 +765,7 @@ export interface ProductDelegate<ExtArgs extends runtime.Types.Extensions.Intern
  */
 export interface Prisma__ProductClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise";
+    cartItems<T extends Prisma.Product$cartItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Product$cartItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CartItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -707,6 +812,10 @@ export type ProductFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    /**
      * Filter, which Product to fetch.
      */
     where: Prisma.ProductWhereUniqueInput;
@@ -724,6 +833,10 @@ export type ProductFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    /**
      * Filter, which Product to fetch.
      */
     where: Prisma.ProductWhereUniqueInput;
@@ -740,6 +853,10 @@ export type ProductFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
      * Omit specific fields from the Product
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
     /**
      * Filter, which Product to fetch.
      */
@@ -788,6 +905,10 @@ export type ProductFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    /**
      * Filter, which Product to fetch.
      */
     where?: Prisma.ProductWhereInput;
@@ -834,6 +955,10 @@ export type ProductFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
      * Omit specific fields from the Product
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
     /**
      * Filter, which Products to fetch.
      */
@@ -882,6 +1007,10 @@ export type ProductCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    /**
      * The data needed to create a Product.
      */
     data: Prisma.XOR<Prisma.ProductCreateInput, Prisma.ProductUncheckedCreateInput>;
@@ -908,6 +1037,10 @@ export type ProductUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
      * Omit specific fields from the Product
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
     /**
      * The data needed to update a Product.
      */
@@ -947,6 +1080,10 @@ export type ProductUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    /**
      * The filter to search for the Product to update in case it exists.
      */
     where: Prisma.ProductWhereUniqueInput;
@@ -972,6 +1109,10 @@ export type ProductDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
+    /**
      * Filter which Product to delete.
      */
     where: Prisma.ProductWhereUniqueInput;
@@ -990,6 +1131,29 @@ export type ProductDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
     limit?: number;
 };
 /**
+ * Product.cartItems
+ */
+export type Product$cartItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CartItem
+     */
+    select?: Prisma.CartItemSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CartItem
+     */
+    omit?: Prisma.CartItemOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CartItemInclude<ExtArgs> | null;
+    where?: Prisma.CartItemWhereInput;
+    orderBy?: Prisma.CartItemOrderByWithRelationInput | Prisma.CartItemOrderByWithRelationInput[];
+    cursor?: Prisma.CartItemWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.CartItemScalarFieldEnum | Prisma.CartItemScalarFieldEnum[];
+};
+/**
  * Product without action
  */
 export type ProductDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1001,4 +1165,8 @@ export type ProductDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
      * Omit specific fields from the Product
      */
     omit?: Prisma.ProductOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProductInclude<ExtArgs> | null;
 };
