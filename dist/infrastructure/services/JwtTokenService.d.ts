@@ -3,4 +3,5 @@ export declare class JwtTokenService implements ITokenService {
     private readonly secret;
     generateAccessToken(userId: string): string;
     generateRefreshToken(userId: string): string;
+    hashRefreshToken(token: string): string;
 }

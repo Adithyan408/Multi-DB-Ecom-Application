@@ -13,4 +13,8 @@ authRouter.post("/login", (req, res, next) => {
     authController.login(req, res, next)
 })
 
+authRouter.post("/refresh", (req, res) => {
+    authController.refresh(req, res)
+})
+
 export default authRouter
