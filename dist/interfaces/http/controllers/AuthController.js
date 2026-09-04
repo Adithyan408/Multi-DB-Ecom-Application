@@ -6,11 +6,16 @@ const LoginUser_1 = require("../../../application/auth/use-cases/LoginUser");
 const PrismaUserRepository_1 = require("../../../infrastructure/database/mysql/repositories/PrismaUserRepository");
 const BcryptPasswordService_1 = require("../../../infrastructure/services/BcryptPasswordService");
 const JwtTokenService_1 = require("../../../infrastructure/services/JwtTokenService");
+const PrismaRefreshTokenRepository_1 = require("../../../infrastructure/database/mysql/repositories/PrismaRefreshTokenRepository");
+const prisma_1 = require("../../../infrastructure/database/mysql/client/prisma");
+const RefreshAccessToken_1 = require("../../../application/auth/use-cases/RefreshAccessToken");
 const userRepository = new PrismaUserRepository_1.PrismaUserRepository();
 const passwordService = new BcryptPasswordService_1.BcryptPasswordService();
 const tokenService = new JwtTokenService_1.JwtTokenService();
+const refreshTokenRepository = new PrismaRefreshTokenRepository_1.PrismaRefreshTokenRepository(prisma_1.prisma);
+const refreshAccessToken = new RefreshAccessToken_1.RefreshAccessToken(refreshTokenRepository, tokenService);
 const registerUser = new RegisterUser_1.RegisterUser(userRepository, passwordService);
-const loginUser = new LoginUser_1.LoginUser(userRepository, passwordService, tokenService);
+const loginUser = new LoginUser_1.LoginUser(userRepository, passwordService, tokenService, refreshTokenRepository);
 class AuthController {
     async register(req, res, next) {
         try {
@@ -43,6 +48,17 @@ class AuthController {
         catch (error) {
             next(error);
         }
+    }
+    async refresh(req, res) {
+        const { refreshToken } = req.body;
+        const accessToken = await refreshAccessToken.execute(refreshToken);
+        res.status(200).json({
+            success: true,
+            message: "Access Token refreshed successfully",
+            data: {
+                accessToken
+            }
+        });
     }
 }
 exports.AuthController = AuthController;
