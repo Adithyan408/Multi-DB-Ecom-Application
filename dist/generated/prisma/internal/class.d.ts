@@ -139,5 +139,16 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get refreshToken(): Prisma.RefreshTokenDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    /**
+     * `prisma.product`: Exposes CRUD operations for the **Product** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Products
+      * const products = await prisma.product.findMany()
+      * ```
+      */
+    get product(): Prisma.ProductDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
 }
 export declare function getPrismaClientClass(): PrismaClientConstructor;

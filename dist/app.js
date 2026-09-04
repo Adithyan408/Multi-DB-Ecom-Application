@@ -10,7 +10,7 @@ const AuthRouter_1 = __importDefault(require("./interfaces/http/routes/AuthRoute
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use("/api/auth", AuthRouter_1.default);
-app.use("/api", ProductRouter_1.default);
+app.use("/api/products", ProductRouter_1.default);
 app.use(errorHandlingMiddleware_1.errorMiddleware);
 exports.default = app;
 //# sourceMappingURL=app.js.map

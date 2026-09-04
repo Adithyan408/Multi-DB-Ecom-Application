@@ -48,7 +48,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RefreshTokenOrderByRelevanceFieldEnum = exports.UserOrderByRelevanceFieldEnum = exports.SortOrder = exports.RefreshTokenScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
+exports.ProductOrderByRelevanceFieldEnum = exports.RefreshTokenOrderByRelevanceFieldEnum = exports.UserOrderByRelevanceFieldEnum = exports.SortOrder = exports.ProductScalarFieldEnum = exports.RefreshTokenScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/index-browser"));
 exports.Decimal = runtime.Decimal;
 exports.NullTypes = {
@@ -76,7 +76,8 @@ exports.JsonNull = runtime.JsonNull;
 exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
     User: 'User',
-    RefreshToken: 'RefreshToken'
+    RefreshToken: 'RefreshToken',
+    Product: 'Product'
 };
 /*
  * Enums
@@ -102,6 +103,15 @@ exports.RefreshTokenScalarFieldEnum = {
     expiresAt: 'expiresAt',
     createdAt: 'createdAt'
 };
+exports.ProductScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    price: 'price',
+    stock: 'stock',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
 exports.SortOrder = {
     asc: 'asc',
     desc: 'desc'
@@ -116,5 +126,10 @@ exports.RefreshTokenOrderByRelevanceFieldEnum = {
     id: 'id',
     tokenHash: 'tokenHash',
     userId: 'userId'
+};
+exports.ProductOrderByRelevanceFieldEnum = {
+    id: 'id',
+    name: 'name',
+    description: 'description'
 };
 //# sourceMappingURL=prismaNamespaceBrowser.js.map

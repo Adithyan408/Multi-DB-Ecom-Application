@@ -1,0 +1,1 @@
+{"version":3,"file":"ProductProjection.js","sourceRoot":"","sources":["../../../../src/application/product/projections/ProductProjection.ts"],"names":[],"mappings":";;;AAGA,MAAa,iBAAiB;IAET;IADnB,YACmB,0BAAuD;QAAvD,+BAA0B,GAA1B,0BAA0B,CAA6B;IACvE,CAAC;IAEJ,KAAK,CAAC,MAAM,CAAC,KAAqB;QAChC,MAAM,IAAI,CAAC,0BAA0B,CAAC,MAAM,CAAC,KAAK,CAAC,OAAO,CAAC,CAAC;IAC9D,CAAC;CACF;AARD,8CAQC"}

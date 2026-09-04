@@ -12,3 +12,8 @@ export type User = Prisma.UserModel;
  *
  */
 export type RefreshToken = Prisma.RefreshTokenModel;
+/**
+ * Model Product
+ *
+ */
+export type Product = Prisma.ProductModel;

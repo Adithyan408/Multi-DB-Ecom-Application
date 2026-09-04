@@ -9,7 +9,7 @@ app.use(express.json())
 
 
 app.use("/api/auth", authRouter)
-app.use("/api/", productRouter)
+app.use("/api/products", productRouter)
 
 
 
